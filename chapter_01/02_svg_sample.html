@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3: Adding color to an SVG bar chart</title>
+		<script type="text/javascript" src="../d3/d3.v3.js"></script>
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			//Width and height
+			var w = 500;
+			var h = 200;
+			var barPadding = 1;
+			
+			function prepareDataset(count, maxValue) {
+				var dataset = [];  						 //Initialize empty array
+				for (var i = 0; i < count; i++) {			
+					var newNumber = Math.floor(Math.random() * maxValue);  //New random integer (0-29)
+					dataset.push(newNumber);			 //Add new number to array
+				}
+				return dataset;
+			};
+
+			var dataset = prepareDataset(25,30); 
+			
+			//Create SVG element
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+
+			svg.selectAll("rect")
+			   .data(dataset)
+			   .enter()
+			   .append("rect")
+			   .attr("x", function(d, i) {
+			   		return i * (w / dataset.length);
+			   })
+			   .attr("y", function(d) {
+			   		return h - (d * 4);
+			   })
+			   .attr("width", w / dataset.length - barPadding)
+			   .attr("height", function(d) {
+			   		return d * 4;
+			   })
+			   .attr("fill", "teal");
+			
+		</script>
+	</body>
+</html>
