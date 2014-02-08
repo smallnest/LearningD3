@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3: Scaled scatterplot, resized to be bigger!</title>
+		<script type="text/javascript" src="../d3/d3.v3.js"></script>
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			//Width and height
+			var w = 500;
+			var h = 300;
+			var padding = 20;
+			
+			function prepareDataset(count, xMaxValue,yMaxValue) {
+				var dataset = [];  						 //Initialize empty array
+				for (var i = 0; i < count; i++) {			
+					var newX = Math.floor(Math.random() * xMaxValue);
+					var newY = Math.floor(Math.random() * yMaxValue);
+					dataset.push([newX,newY]);			 //Add new number to array
+				}
+				return dataset;
+			};
+
+			var dataset = prepareDataset(10,480,150);
+
+			//Create scale functions
+			var xScale = d3.scale.linear()
+								 .domain([0, d3.max(dataset, function(d) { return d[0]; })])
+								 .range([padding, w - padding * 2]);
+
+			var yScale = d3.scale.linear()
+								 .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+								 .range([h - padding, padding]);
+
+			var rScale = d3.scale.sqrt()
+								 .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+								 .range([2, 10]);
+	
+			//Create SVG element
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+
+			svg.selectAll("circle")
+			   .data(dataset)
+			   .enter()
+			   .append("circle")
+			   .attr("cx", function(d) {
+			   		return xScale(d[0]);
+			   })
+			   .attr("cy", function(d) {
+			   		return yScale(d[1]);
+			   })
+			   .attr("r", function(d) {
+			   		return rScale(d[1]);
+			   })
+			   .attr("fill", function(d) {
+					return "rgb(" + Math.round(d[0] / 2) + ", " + d[1] + "," + Math.round((d[0] + d[1]) / 2) + ")";
+			   });
+
+			svg.selectAll("text")
+			   .data(dataset)
+			   .enter()
+			   .append("text")
+			   .text(function(d) {
+			   		return d[0] + "," + d[1];
+			   })
+			   .attr("x", function(d) {
+			   		return xScale(d[0]);
+			   })
+			   .attr("y", function(d) {
+			   		return yScale(d[1]);
+			   })
+			   .attr("font-family", "sans-serif")
+			   .attr("font-size", "11px")
+			   .attr("fill", "red");
+			
+		</script>
+	</body>
+</html>
