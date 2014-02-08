@@ -20,11 +20,13 @@ Reference
 [04_svg_color.html](chapter_01/04_svg_color.html) 调整条形图的颜色。
 
 [05_scatterplot_labels.html](chapter_01/05_scatterplot_labels.html)散点图的例子。
+  
 ----
 
 [01_scaled_plot.html](chapter_02/01_scaled_plot.html) 演示如何设置scale.
 
 [02_axes.html](chapter_02/02_axes.html) 增加数轴。
+  
 ----
 
 [01_bar_chart_with_scales.html](chapter_03/01_bar_chart_with_scales.html) 为条形图增加scale
@@ -38,11 +40,13 @@ Reference
 [05_ease_elastic.html](chapter_03/05_ease_elastic.html)动画类型。
 
 [06_axes_dynamic.html](chapter_03/06_axes_dynamic.html) 更新数据时数轴也要更新。
+  
 ----
 
 [01_each_combo_transition_chained.html](chapter_04/01_each_combo_transition_chained.html)动画转换时的动画链。
 
 [02_adding_and_removing.html](chapter_04/02_adding_and_removing.html)动态增加删除数据。
+  
 ----
 
 [01_click.html](chapter_05/01_click.html)本章演示了事件处理。这个例子演示了如何选择一个图形元素。
@@ -58,6 +62,7 @@ Reference
 [06_svg_tooltip.html](chapter_05/06_svg_tooltip.html)为图形元素显示图形框。 （SVG方式）
 
 [07_div_tooltip.html](chapter_05/07_div_tooltip.html)为图形元素显示图形框。 （DIV方式）
+  
 ----
 
 [01_pie.html](chapter_06/01_pie.html) 本章演示了更多的图形方式。这个例子是饼图。
@@ -67,6 +72,7 @@ Reference
 [03_stacked_bar.html](chapter_06/03_stacked_bar.html)堆叠图。
 
 [04_force.html](chapter_06/04_force.html)force布局。
+  
 ----
 
 [地理信息](chapter_07) 地理信息的例子。
